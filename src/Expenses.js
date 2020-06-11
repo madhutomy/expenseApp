@@ -18,6 +18,8 @@ class Expenses extends Component {
             item : this.emptyItem
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
     emptyItem = {
@@ -100,6 +102,7 @@ class Expenses extends Component {
                 <tr id={expense.id}>
                     <td><Moment date={expense.expensedate} format="YYYY/MM/DD"/></td>
                     <td>{expense.description}</td>
+                    <td>{expense.amount}</td>
                     <td>{expense.category.name}</td>
                     <td>{expense.location}</td>
                     <td><Button size="sm" color="danger" onClick={() => this.remove(expense.id)}>Delete</Button></td>
@@ -119,6 +122,7 @@ class Expenses extends Component {
                             <tr>
                                 <th>Date</th>
                                 <th>Description</th>
+                                <th>Amount</th>
                                 <th>Category</th>
                                 <th>Location</th>
                                 <th>Action</th>
